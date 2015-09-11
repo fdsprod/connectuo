@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConnectUOConfig>
+  <Guid></Guid>
+  <WorkModeValue>0</WorkModeValue>
+  <StorageDirectory></StorageDirectory>
+  <UltimaOnlineDirectory></UltimaOnlineDirectory>
+  <UltimaOnlineExe>client.exe</UltimaOnlineExe>
+  <PatchDirectory></PatchDirectory>
+  <LaunchRazor>true</LaunchRazor>
+  <RemoveEncryption>true</RemoveEncryption>
+  <MinutesBetweenUpdates>10</MinutesBetweenUpdates>
+</ConnectUOConfig>

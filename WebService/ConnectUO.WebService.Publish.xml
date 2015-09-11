@@ -1,0 +1,8 @@
+<publishData>
+  <publishTarget publishUrl="C:\inetpub\wwwroot\WebService\">
+    <file relUrl="bin/x86/Debug/ConnectUO.WebService2.dll" publishTime="02/19/2009 16:57:15" />
+    <file relUrl="bin/x86/Debug/ConnectUO.WebService2.pdb" publishTime="02/19/2009 16:57:03" />
+    <file relUrl="CuoWebService.asmx" publishTime="02/19/2009 16:55:27" />
+    <file relUrl="Web.config" publishTime="02/19/2009 16:55:27" />
+  </publishTarget>
+</publishData>

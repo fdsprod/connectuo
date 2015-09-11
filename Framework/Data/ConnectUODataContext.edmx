@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConnectUO.Data.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="ConnectUODataStoreContainer">
+          <EntitySet Name="ClientProcess" EntityType="ConnectUO.Data.Store.ClientProcess" store:Type="Tables" />
+          <EntitySet Name="Config" EntityType="ConnectUO.Data.Store.Config" store:Type="Tables" />
+          <EntitySet Name="LocalPatches" EntityType="ConnectUO.Data.Store.LocalPatches" store:Type="Tables" />
+          <EntitySet Name="Server" EntityType="ConnectUO.Data.Store.Server" store:Type="Tables" />
+          <EntitySet Name="ServerPatches" EntityType="ConnectUO.Data.Store.ServerPatches" store:Type="Tables" />
+          <EntitySet Name="ServerPatchState" EntityType="ConnectUO.Data.Store.ServerPatchState" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="ClientProcess">
+          <Key>
+            <PropertyRef Name="ServerId" />
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="ServerId" Type="integer" Nullable="false" />
+          <Property Name="Pid" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="LocalPatches">
+          <Key>
+            <PropertyRef Name="ShardId" />
+            <PropertyRef Name="PatchUrl" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="ShardId" Type="integer" Nullable="false" />
+          <Property Name="PatchUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Version" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Server">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Era" Type="integer" Nullable="false" />
+          <Property Name="ShardType" Type="integer" Nullable="false" />
+          <Property Name="Lang" Type="integer" Nullable="false" />
+          <Property Name="RemoveEncryption" Type="bit" Nullable="false" />
+          <Property Name="AllowRazor" Type="bit" Nullable="false" />
+          <Property Name="HostAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Port" Type="integer" Nullable="false" />
+          <Property Name="Status" Type="integer" Nullable="false" />
+          <Property Name="AvgOnline" Type="integer" Nullable="false" />
+          <Property Name="MaxOnline" Type="integer" Nullable="false" />
+          <Property Name="CurOnline" Type="integer" Nullable="false" />
+          <Property Name="UpTime" Type="float" Nullable="false" />
+          <Property Name="Data" Type="blob" />
+          <Property Name="ServerClientVersion" Type="nvarchar" MaxLength="20" />
+          <Property Name="HasPatches" Type="bit" Nullable="false" />
+          <Property Name="Public" Type="bit" Nullable="false" />
+          <Property Name="Favorite" Type="bit" Nullable="false" />
+          <!--<Property Name="Hidden" Type="bit" Nullable="false" />-->
+        </EntityType>
+        <EntityType Name="ServerPatches">
+          <Key>
+            <PropertyRef Name="ShardId" />
+            <PropertyRef Name="PatchUrl" />
+          </Key>
+          <Property Name="ShardId" Type="int" Nullable="false" />
+          <Property Name="PatchUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServerPatchState">
+          <Key>
+            <PropertyRef Name="ServerId" />
+          </Key>
+          <Property Name="ServerId" Type="integer" Nullable="false" />
+          <Property Name="Patching" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConnectUO.Data" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="ConnectUODataContext">
+          <EntitySet Name="ClientProcessContext" EntityType="ConnectUO.Data.ClientProcess" />
+          <EntitySet Name="ConfigContext" EntityType="ConnectUO.Data.Config" />
+          <EntitySet Name="ServerContext" EntityType="ConnectUO.Data.Server" />
+          <EntitySet Name="ServerPatchContext" EntityType="ConnectUO.Data.ServerPatch" />
+          <EntitySet Name="ServerPatchStateContext" EntityType="ConnectUO.Data.ServerPatchState" />
+          <EntitySet Name="LocalPatchContext" EntityType="ConnectUO.Data.LocalPatch" /></EntityContainer>
+        <EntityType Name="ClientProcess">
+          <Key>
+            <PropertyRef Name="ServerId" />
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="ServerId" Type="Int64" Nullable="false" />
+          <Property Name="Pid" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Server">
+          <Key>
+            <PropertyRef Name="Id" />
+            </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Era" Type="Int64" Nullable="false" />
+          <Property Name="ShardType" Type="Int64" Nullable="false" />
+          <Property Name="Lang" Type="Int64" Nullable="false" />
+          <Property Name="RemoveEncryption" Type="Boolean" Nullable="false" />
+          <Property Name="AllowRazor" Type="Boolean" Nullable="false" />
+          <Property Name="HostAddress" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Port" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int64" Nullable="false" />
+          <Property Name="AvgOnline" Type="Int64" Nullable="false" />
+          <Property Name="MaxOnline" Type="Int64" Nullable="false" />
+          <Property Name="CurOnline" Type="Int64" Nullable="false" />
+          <Property Name="UpTime" Type="Double" Nullable="false" />
+          <Property Name="Data" Type="Binary" Nullable="true" MaxLength="2147483647" FixedLength="false" />
+          <Property Name="ServerClientVersion" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="HasPatches" Type="Boolean" Nullable="false" />
+          <Property Name="Public" Type="Boolean" Nullable="false" />
+          <Property Name="Favorite" Type="Boolean" Nullable="false" />
+          </EntityType>
+        <EntityType Name="ServerPatch">
+          <Key>
+            <PropertyRef Name="ShardId" />
+            <PropertyRef Name="PatchUrl" />
+          </Key>
+          <Property Name="ShardId" Type="Int32" Nullable="false" />
+          <Property Name="PatchUrl" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServerPatchState">
+          <Key>
+            <PropertyRef Name="ServerId" />
+          </Key>
+          <Property Name="ServerId" Type="Int64" Nullable="false" />
+          <Property Name="Patching" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocalPatch">
+          <Key>
+            <PropertyRef Name="ShardId" />
+            <PropertyRef Name="PatchUrl" />
+            <PropertyRef Name="Version" /></Key>
+          <Property Name="ShardId" Type="Int64" Nullable="false" />
+          <Property Name="PatchUrl" Type="String" Nullable="false" />
+          <Property Name="Version" Type="Int64" Nullable="false" /></EntityType></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="ConnectUODataStoreContainer" CdmEntityContainer="ConnectUODataContext">
+          <EntitySetMapping Name="ClientProcessContext">
+            <EntityTypeMapping TypeName="IsTypeOf(ConnectUO.Data.ClientProcess)">
+              <MappingFragment StoreEntitySet="ClientProcess">
+                <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfigContext">
+            <EntityTypeMapping TypeName="IsTypeOf(ConnectUO.Data.Config)">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServerContext">
+            <EntityTypeMapping TypeName="IsTypeOf(ConnectUO.Data.Server)">
+              <MappingFragment StoreEntitySet="Server">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Era" ColumnName="Era" />
+                <ScalarProperty Name="ShardType" ColumnName="ShardType" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="RemoveEncryption" ColumnName="RemoveEncryption" />
+                <ScalarProperty Name="AllowRazor" ColumnName="AllowRazor" />
+                <ScalarProperty Name="HostAddress" ColumnName="HostAddress" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AvgOnline" ColumnName="AvgOnline" />
+                <ScalarProperty Name="MaxOnline" ColumnName="MaxOnline" />
+                <ScalarProperty Name="CurOnline" ColumnName="CurOnline" />
+                <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ServerClientVersion" ColumnName="ServerClientVersion" />
+                <ScalarProperty Name="HasPatches" ColumnName="HasPatches" />
+                <ScalarProperty Name="Public" ColumnName="Public" />
+                <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServerPatchContext">
+            <EntityTypeMapping TypeName="IsTypeOf(ConnectUO.Data.ServerPatch)">
+              <MappingFragment StoreEntitySet="ServerPatches">
+                <ScalarProperty Name="ShardId" ColumnName="ShardId" />
+                <ScalarProperty Name="PatchUrl" ColumnName="PatchUrl" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServerPatchStateContext">
+            <EntityTypeMapping TypeName="IsTypeOf(ConnectUO.Data.ServerPatchState)">
+              <MappingFragment StoreEntitySet="ServerPatchState">
+                <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+                <ScalarProperty Name="Patching" ColumnName="Patching" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalPatchContext">
+            <EntityTypeMapping TypeName="IsTypeOf(ConnectUO.Data.LocalPatch)">
+              <MappingFragment StoreEntitySet="LocalPatches">
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PatchUrl" ColumnName="PatchUrl" />
+                <ScalarProperty Name="ShardId" ColumnName="ShardId" /></MappingFragment></EntityTypeMapping></EntitySetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ConnectUODataContext">
+        <EntityTypeShape EntityType="ConnectUO.Data.ClientProcess" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583331" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectUO.Data.Config" Width="1.5" PointX="0.75" PointY="3.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectUO.Data.Server" Width="1.5" PointX="2.75" PointY="3.75" Height="5.057109375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectUO.Data.ServerPatch" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499998" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectUO.Data.ServerPatchState" Width="1.5" PointX="4.75" PointY="3.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectUO.Data.LocalPatch" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937499996" /></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

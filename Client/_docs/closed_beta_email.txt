@@ -1,0 +1,24 @@
+﻿Subject: 
+ConnectUO Closed Beta
+
+Body:
+Dear ConnectUO Supporter,
+
+	Thanks you for your interest in ConnectUO and participating in the ConnectUO 2.0 Closed Beta.  
+	The closed beta should last approximatly 1 week and will then be open to the public. During the 
+	beta we are looking for any bugs and inconsistnacies that make ConnectUO unsuable in its 
+	current state.  It will be your duty to use ConnectUO and report any and all bugs found to the
+	bug forum at http://www.runuo.com/bugs/.  It is important that you check the current bug list 
+	to make sure you are not reporting a bug that has already been reported.  Please be sure to 
+	include the debug.log in your bug post, you may need to zip it in order to attach it to the
+	bug tracker.  During the beta you may see lots of updates to the client (It will tell you when
+	it has been updated and ask you to restart), please make sure you are always using the latest 
+	version of ConnectUO.  
+
+	Please do not give out this information to anyone until the close beta is complete:
+	
+	Download Link:  http://www.connectuo.com/downloads/ConnectUOLatest_x86.zip
+	Bug Tracker  :  http://www.runuo.com/bugs/
+	
+Thank you for you continued support,
+The RunUO Team

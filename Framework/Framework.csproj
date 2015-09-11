@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD4D09FE-5C1D-42F4-93AC-030EB798213A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConnectUO.Framework</RootNamespace>
+    <AssemblyName>ConnectUO.Framework</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Client\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp, Version=1.0.3537.37869, Culture=neutral, PublicKeyToken=20de82c62b055c88, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Fds.Core\trunk\Fds.Core\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <HintPath>..\..\lib\bin\SQLite.Net\x86\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=2.0.38.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\bin\SQLite.Net\x86\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationInfo.cs" />
+    <Compile Include="Asserter.cs" />
+    <Compile Include="CallbackState.cs" />
+    <Compile Include="Configuration\TracerConfigurationSection.cs" />
+    <Compile Include="Configuration\TracerElement.cs" />
+    <Compile Include="Configuration\TracerElementCollection.cs" />
+    <Compile Include="ConsoleHelper.cs" />
+    <Compile Include="Controls\SiteNames.cs" />
+    <Compile Include="Data\ConnectUODataContext.Designer.cs">
+      <DependentUpon>ConnectUODataContext.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Diagnostics\ITraceListener.cs" />
+    <Compile Include="Diagnostics\Listeners\ConsoleTraceListener.cs" />
+    <Compile Include="Diagnostics\Listeners\DebugTraceListener.cs" />
+    <Compile Include="Diagnostics\Listeners\FileTraceListener.cs" />
+    <Compile Include="Diagnostics\Listeners\UnhandledExceptionListener.cs" />
+    <Compile Include="Diagnostics\TraceListener.cs" />
+    <Compile Include="Diagnostics\TraceMessage.cs" />
+    <Compile Include="Diagnostics\TraceMessageEventArgs.cs" />
+    <Compile Include="Diagnostics\Tracer.cs" />
+    <Compile Include="Diagnostics\TraceType.cs" />
+    <Compile Include="ErrorEventArgs.cs" />
+    <Compile Include="ExceptionEventArgs.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\IPAddressExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\SingleExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="IInitializable.cs" />
+    <Compile Include="IO\FileCopyOperation.cs" />
+    <Compile Include="IO\FileSystemHelper.cs" />
+    <Compile Include="IShellController.cs" />
+    <Compile Include="MathHelper.cs" />
+    <Compile Include="OperationBase.cs" />
+    <Compile Include="ProgressEventArgs.cs" />
+    <Compile Include="RandomHelper.cs" />
+    <Compile Include="Services\ISettingsService.cs" />
+    <Compile Include="Services\IShellService.cs" />
+    <Compile Include="Services\ISiteService.cs" />
+    <Compile Include="Services\IStorageService.cs" />
+    <Compile Include="EventArgs.cs" />
+    <Compile Include="Framework\Era.cs" />
+    <Compile Include="Framework\Lang.cs" />
+    <Compile Include="Framework\Patching\ExtendedFileId.cs" />
+    <Compile Include="Framework\Patching\FileId.cs" />
+    <Compile Include="Framework\Patching\IO\FileIndex.cs" />
+    <Compile Include="Framework\Patching\IO\Patcher.cs" />
+    <Compile Include="Framework\Patching\IO\PatchReader.cs" />
+    <Compile Include="Framework\Patching\IO\PatchWriter.cs" />
+    <Compile Include="Framework\Patching\Patch.cs" />
+    <Compile Include="Framework\Patching\PatchingTask.cs" />
+    <Compile Include="Framework\Patching\PatchManager.cs" />
+    <Compile Include="Framework\Patching\ShardPatch.cs" />
+    <Compile Include="Framework\ServerComparer.cs" />
+    <Compile Include="Framework\ServerListOrderBy.cs" />
+    <Compile Include="Framework\ShardType.cs" />
+    <Compile Include="Framework\Status.cs" />
+    <Compile Include="Framework\Ultima\Client.cs" />
+    <Compile Include="Framework\Ultima\ClientLauncher.cs" />
+    <Compile Include="Framework\Ultima\LaunchStatus.cs" />
+    <Compile Include="Framework\Web\WebService.cs" />
+    <Compile Include="IProgressNotifier.cs" />
+    <Compile Include="IStatusNotifier.cs" />
+    <Compile Include="Plugins\IPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IApplicationService.cs" />
+    <Compile Include="StartupArgumentMember.cs" />
+    <Compile Include="StartupArgumentParser.cs" />
+    <Compile Include="StatusLevel.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\TaskManager.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="VIews.cs" />
+    <Compile Include="Web References\Web\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web\HttpDownload.cs" />
+    <Compile Include="Windows\DesktopWindowsManager.cs" />
+    <Compile Include="Windows\DesktopWindowsManagerCompositionException.cs" />
+    <Compile Include="Windows\Font.cs" />
+    <Compile Include="Windows\Message.cs" />
+    <Compile Include="Windows\MessageBoxEx.cs" />
+    <Compile Include="Windows\MessageBoxExButton.cs" />
+    <Compile Include="Windows\MessageBoxExButtons.cs" />
+    <Compile Include="Windows\MessageBoxExForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MessageBoxExIcon.cs" />
+    <Compile Include="Windows\MessageBoxExManager.cs" />
+    <Compile Include="Windows\MessageBoxExResult.cs" />
+    <Compile Include="Windows\MessageHook.cs" />
+    <Compile Include="Windows\NativeMethods.cs" />
+    <Compile Include="Windows\Point2D.cs" />
+    <Compile Include="Windows\RegistryHelper.cs" />
+    <Compile Include="Windows\Size.cs" />
+    <Compile Include="Windows\TimeoutResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data.jab">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://209.173.140.55/ConnectUOService/ConnectUO.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Web\</RelPath>
+      <UpdateFromURL>http://209.173.140.55/ConnectUOService/ConnectUO.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ConnectUO_Framework_Web_ConnectUO_x0020_Web_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Data\ConnectUODataContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConnectUODataContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Web\ConnectUO.disco" />
+    <None Include="Web References\Web\ConnectUO.wsdl" />
+    <None Include="Web References\Web\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows\MessageBoxExForm.resx">
+      <DependentUpon>MessageBoxExForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MyMessageBox.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
